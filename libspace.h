@@ -1,5 +1,12 @@
 ﻿#include "TXLib.h"
-void korpys(int x, int y) {
+void clearall(COLORREF color)
+{
+    txClear();
+    txSetFillColor(color);
+    txFloodFill(1, 1);
+}
+void korpys(int x, int y)
+{
     txSetColour(TX_LIGHTGRAY);
     txSetFillColour(TX_LIGHTGRAY);
     txLine(x + 60, y + 60, x - 75, y + 60);
@@ -21,7 +28,8 @@ void korpys(int x, int y) {
     txLine(x + 108.5, y - 45, x + 60, y + 60);
     txFloodFill(x + 120, y - 30);
 }
-void ctikla(int x, int y, int R, int G, int B) {
+void ctikla(int x, int y, int R, int G, int B)
+{
     txSetColour(RGB(R, G, B));
     txSetFillColour(RGB(R, G, B));
     txLine(x, y, x + 105, y - 30);
@@ -32,16 +40,19 @@ void ctikla(int x, int y, int R, int G, int B) {
     txCircle(x + 165, y + 15, 30);
     txCircle(x + 255, y + 15, 30);
 }
-void chip(int x, int y, int R, int G, int B) {
+void chip(int x, int y, int R, int G, int B)
+{
     korpys(x, y);
     ctikla(x, y, R, G, B);
 }
-void zvezda(int x, int y, int z) {
+void zvezda(int x, int y, int z)
+{
     txSetColour(TX_WHITE);
     txSetFillColour(TX_WHITE);
     txCircle(x, y, z);
 }
-void sozvezdia() {
+void sozvezdia()
+{
     zvezda(100, 550, 2);
     zvezda(110, 250, 1);
     zvezda(176, 571, 3);
@@ -65,7 +76,8 @@ void sozvezdia() {
     zvezda(340, 610, 2);
     zvezda(780, 760, 3);
 }
-void shel(int x, int y, int R, int G, int B) {
+void shel(int x, int y, int R, int G, int B)
+{
     txSetColour(RGB(R, G, B));
     txSetFillColour(RGB(R, G, B));
     txCircle(x, y - 7.5, 7.5);
@@ -75,18 +87,17 @@ void shel(int x, int y, int R, int G, int B) {
     txLine(x, y + 30, x - 7.5, y + 45);
     txLine(x, y + 30, x + 7.5, y + 45);
 }
-void text(int x, int y,
-    const char * t) {
+void text(int x, int y, const char * t)
+{
     txSetColor(TX_WHITE);
     txSelectFont("Arial", 20, 0, FW_BOLD);
     txDrawText(x, y, x + 400, y + 150, t);
     txSleep(3000);
 
 }
-void novai_vraza() {
-    txClear();
-    txSetFillColor(TX_BLACK);
-    txFloodFill(1, 1);
+void novai_vraza()
+{
+    clearall(TX_BLACK);
     sozvezdia();
     shel(805, 555, 0, 128, 0);
     shel(700, 555, 255, 128, 0);
@@ -95,10 +106,9 @@ void novai_vraza() {
     txLine(585, 465, 705, 535);
     txSleep(100);
 }
-void novai_vraza2() {
-    txClear();
-    txSetFillColor(TX_BLACK);
-    txFloodFill(1, 1);
+void novai_vraza2()
+{
+    clearall(TX_BLACK);
     sozvezdia();
     shel(805, 555, 0, 128, 0);
     shel(700, 555, 1, 128, 0);
@@ -107,10 +117,9 @@ void novai_vraza2() {
     txLine(585, 465, 705, 535);
     txSleep(100);
 }
-void novai_vraza3() {
-    txClear();
-    txSetFillColor(TX_BLACK);
-    txFloodFill(1, 1);
+void novai_vraza3()
+{
+    clearall(TX_BLACK);
     sozvezdia();
     shel(-15, 555, 0, 128, 0);
     shel(700, 555, 1, 128, 0);
@@ -120,17 +129,15 @@ void novai_vraza3() {
     txSleep(100);
 }
 
-void text2(int x, int y,
-    const char * t) {
+void text2(int x, int y, const char * t)
+{
     txSetColor(TX_WHITE);
     txSelectFont("Arial", 100, 0, FW_BOLD);
     txDrawText(x, y, x + 800, y + 550, t);
     txSleep(2500);
 }
 
-void novai_vraza4() {
-    txClear();
-    txSetFillColor(TX_BLUE);
-    txFloodFill(1, 1);
+void novai_vraza4()
+{
     text2(100, 100, "НИКОГДА НОСКАМИ\n НЕ ОБИЖАЙТЕ СВОИХ ДРУЗЕЙ");
 }
